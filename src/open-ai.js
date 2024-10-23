@@ -1,17 +1,17 @@
 const axios = require('axios');
-require('dotenv').config()
+require('dotenv').config();
 
 const apiKey = process.env.OPENAI_KEY; 
 const model = process.env.OPENAI_MODEL || "gpt-3.5-turbo"; 
 
-async function prompt(prompt) {
+async function prompt(content, prompt) {
     const apiUrl = 'https://api.openai.com/v1/chat/completions';
-    
+        
     try {
         const response = await axios.post(apiUrl, {
             model: model,
             messages: [
-                { "role": "system", "content": "You are a helpful assistant specialising in decks for marketing agencies." },
+                { "role": "system", "content": content },
                 { "role": "user", "content": prompt }
             ]
         }, {
@@ -32,4 +32,4 @@ async function prompt(prompt) {
     }
 }
 
-module.exports = { prompt }
+module.exports = { prompt };

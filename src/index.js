@@ -1,3 +1,6 @@
-const prompt = require("./open-ai").prompt;
+// Test script for Tesla as the target client
 
-prompt("If I were pitching Tesla as a marketing agency what would I propose as the game plan?");
+const generate = requre("./generate.js").generate
+
+// On completion of the promise, log output
+generate.next(console.log);
